@@ -1,0 +1,85 @@
+[project]
+name = "readonly-mcp-teamcity"
+version = "1.0.0"
+description = "Read-only MCP server for JetBrains TeamCity — search builds, configs, logs, tests, agents"
+readme = "README.md"
+license = {text = "MIT"}
+requires-python = ">=3.11"
+authors = [{name = "Wojciech Wentland"}]
+keywords = ["mcp", "teamcity", "ci-cd", "ai-agents", "model-context-protocol"]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+]
+dependencies = [
+    "fastmcp>=3.0",
+    "httpx>=0.28",
+    "pydantic-settings>=2.0",
+    "orjson>=3.10",
+    "rapidfuzz>=3.0",
+    "cachetools>=5.5",
+]
+
+[project.urls]
+Homepage = "https://github.com/desty2k/readonly-mcp-teamcity"
+Repository = "https://github.com/desty2k/readonly-mcp-teamcity"
+"Bug Tracker" = "https://github.com/desty2k/readonly-mcp-teamcity/issues"
+
+[project.optional-dependencies]
+# OpenTelemetry tracing support. The base install only depends on the OTel
+# *API* (pulled in transitively by fastmcp), so instrumentation is a no-op
+# until this extra is installed AND TEAMCITY_OTEL_ENABLED=true.
+otel = [
+    "opentelemetry-sdk>=1.30",
+    "opentelemetry-exporter-otlp>=1.30",
+]
+dev = [
+    "pytest>=8.0",
+    "pytest-cov>=6.0",
+    "pytest-asyncio>=0.24",
+    "ruff>=0.8",
+    "respx>=0.22",
+    # SDK is needed so telemetry wiring can be exercised in tests.
+    "opentelemetry-sdk>=1.30",
+    "opentelemetry-exporter-otlp>=1.30",
+]
+
+[project.scripts]
+readonly-mcp-teamcity = "mcp_teamcity.__main__:main"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/mcp_teamcity"]
+
+[tool.ruff]
+target-version = "py311"
+line-length = 120
+src = ["src"]
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "W"]
+
+[tool.pytest.ini_options]
+asyncio_mode = "auto"
+testpaths = ["tests"]
+pythonpath = ["tests"]
+
+[tool.coverage.run]
+source = ["mcp_teamcity"]
+omit = [
+    "src/mcp_teamcity/__main__.py",
+    "src/mcp_teamcity/__init__.py",
+]
+
+[tool.coverage.report]
+exclude_lines = [
+    "pragma: no cover",
+    "if __name__",
+    "if TYPE_CHECKING",
+]
