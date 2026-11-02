@@ -8,12 +8,12 @@
     "url": "https://github.com/desty2k/readonly-mcp-teamcity",
     "source": "github"
   },
-  "version": "1.0.0",
+  "version": "1.0.1",
   "packages": [
     {
       "registryType": "pypi",
       "identifier": "readonly-mcp-teamcity",
-      "version": "1.0.0",
+      "version": "1.0.1",
       "transport": {
         "type": "stdio"
       },

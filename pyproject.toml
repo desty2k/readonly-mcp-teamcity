@@ -1,6 +1,6 @@
 [project]
 name = "readonly-mcp-teamcity"
-version = "1.0.0"
+version = "1.0.1"
 description = "Read-only MCP server for JetBrains TeamCity — search builds, configs, logs, tests, agents"
 readme = "README.md"
 license = {text = "MIT"}
