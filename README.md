@@ -31,6 +31,7 @@ Python 3.11 or newer.
 > pin, tag, or modify anything in TeamCity, and every tool is annotated
 > `readOnlyHint`. Scope the token read-only on the TeamCity side as a second
 > line of defense: see [Token](#token). Read
+> [the post about this server](https://blog.wentland.io/blog/read-only-mcp-server-teamcity/) and
 > [why I build read-only MCP servers](https://blog.wentland.io/blog/why-read-only-mcp/).
 
 ## Token

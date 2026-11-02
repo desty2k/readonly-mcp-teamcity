@@ -3,6 +3,7 @@
   "name": "io.github.desty2k/teamcity",
   "title": "TeamCity CI/CD",
   "description": "Read-only MCP server for JetBrains TeamCity — builds, configs, logs, tests, agents",
+  "websiteUrl": "https://blog.wentland.io/blog/read-only-mcp-server-teamcity/",
   "repository": {
     "url": "https://github.com/desty2k/readonly-mcp-teamcity",
     "source": "github"

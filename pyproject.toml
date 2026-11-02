@@ -26,6 +26,7 @@ dependencies = [
 [project.urls]
 Homepage = "https://github.com/desty2k/readonly-mcp-teamcity"
 Repository = "https://github.com/desty2k/readonly-mcp-teamcity"
+"Blog Post" = "https://blog.wentland.io/blog/read-only-mcp-server-teamcity/"
 "Bug Tracker" = "https://github.com/desty2k/readonly-mcp-teamcity/issues"
 
 [project.optional-dependencies]
